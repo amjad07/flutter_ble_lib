@@ -1,12 +1,12 @@
 package com.polidea.flutter_ble_lib.converter;
 
 
-import androidx.annotation.Nullable;
-
 import com.polidea.multiplatformbleadapter.errors.BleError;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import androidx.annotation.Nullable;
 
 public class BleErrorJsonConverter implements JsonConverter<BleError> {
 

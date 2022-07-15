@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.polidea.flutter_ble_lib.ConnectionStateChange;
+import com.polidea.flutter_ble_lib.converter.BleErrorJsonConverter;
 import com.polidea.flutter_ble_lib.converter.ConnectionStateChangeJsonConverter;
 
 import org.json.JSONException;

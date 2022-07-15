@@ -1,7 +1,5 @@
 package com.polidea.flutter_ble_lib.delegate;
 
-import androidx.annotation.NonNull;
-
 import com.polidea.flutter_ble_lib.MultiCharacteristicsResponse;
 import com.polidea.flutter_ble_lib.SafeMainThreadResolver;
 import com.polidea.flutter_ble_lib.constant.ArgumentKey;
@@ -24,7 +22,9 @@ import org.json.JSONException;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
+import androidx.annotation.NonNull;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
