@@ -1,42 +1,35 @@
-package android
-
 group 'com.polidea.flutter_ble_lib'
-version '2.3.2'
+version '1.0'
 
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:7.1.2'
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
-        maven { url "https://jitpack.io" }
+        mavenCentral()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     defaultConfig {
-        minSdkVersion 18
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion 16
     }
-    lintOptions {
-        disable 'InvalidPackage'
-    }
-}
-
-dependencies {
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'com.github.Polidea:MultiPlatformBleAdapter:0.1.8'
 }

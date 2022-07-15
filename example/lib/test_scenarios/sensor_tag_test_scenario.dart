@@ -1,7 +1,7 @@
 part of test_scenarios;
 
 class SensorTagTestScenario {
-  PeripheralTestOperations _peripheralTestOperations;
+late  PeripheralTestOperations _peripheralTestOperations;
 
   SensorTagTestScenario(BleManager bleManager, Peripheral peripheral,
       Logger log, Logger logError) {

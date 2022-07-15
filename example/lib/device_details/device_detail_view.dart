@@ -13,8 +13,8 @@ class DeviceDetailsView extends StatefulWidget {
 }
 
 class DeviceDetailsViewState extends State<DeviceDetailsView> {
-  DeviceDetailsBloc _deviceDetailsBloc;
-  StreamSubscription _appStateSubscription;
+  late DeviceDetailsBloc _deviceDetailsBloc;
+  late StreamSubscription _appStateSubscription;
 
   bool _shouldRunOnResume = true;
 

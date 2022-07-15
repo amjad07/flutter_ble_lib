@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class ButtonView extends StatelessWidget {
   final String _text;
-  final Function action;
+  final Function? action;
 
-  ButtonView(this._text, {this.action});
+  ButtonView(this._text, { this.action});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,8 @@ class ButtonView extends StatelessWidget {
           color: Colors.blue,
           textColor: Colors.white,
           child: Text(_text),
-          onPressed: action,
+          //   onPressed: action,
+          onPressed: () => action,
         ),
       ),
     );

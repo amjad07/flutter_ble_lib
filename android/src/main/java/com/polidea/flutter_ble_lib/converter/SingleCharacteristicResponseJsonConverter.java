@@ -1,11 +1,11 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.converter;
+package com.polidea.flutter_ble_lib.converter;
+
+import androidx.annotation.Nullable;
 
 import com.polidea.flutter_ble_lib.SingleCharacteristicResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import androidx.annotation.Nullable;
 
 public class SingleCharacteristicResponseJsonConverter implements JsonConverter<SingleCharacteristicResponse> {
 

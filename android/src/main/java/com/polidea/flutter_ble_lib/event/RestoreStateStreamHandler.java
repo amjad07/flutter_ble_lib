@@ -1,4 +1,4 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.event;
+package com.polidea.flutter_ble_lib.event;
 
 import io.flutter.plugin.common.EventChannel;
 

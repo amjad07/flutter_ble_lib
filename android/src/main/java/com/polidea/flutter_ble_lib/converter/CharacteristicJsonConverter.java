@@ -1,4 +1,4 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.converter;
+package com.polidea.flutter_ble_lib.converter;
 
 import com.polidea.multiplatformbleadapter.Characteristic;
 import com.polidea.multiplatformbleadapter.utils.Base64Converter;

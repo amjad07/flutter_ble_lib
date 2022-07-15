@@ -6,7 +6,7 @@ class PeripheralTestOperations {
   final Peripheral peripheral;
   final Logger log;
   final Logger logError;
-  StreamSubscription monitoringStreamSubscription;
+  late StreamSubscription monitoringStreamSubscription;
   final BleManager bleManager;
 
   PeripheralTestOperations(
@@ -60,9 +60,9 @@ class PeripheralTestOperations {
             log("Found characteristic \n ${characteristic.uuid}"));
 
         //------------ descriptors
-        List<Descriptor> descriptors;
+       late List<Descriptor>? descriptors;
 
-        var printDescriptors = () => descriptors.forEach((descriptor) {
+        var printDescriptors = () => descriptors!.forEach((descriptor) {
               log("Descriptor: ${descriptor.uuid}");
             });
 
@@ -109,8 +109,9 @@ class PeripheralTestOperations {
     await _runWithErrorHandling(() async {
       int requestedMtu = 79;
       log("Requesting MTU = $requestedMtu");
-      int negotiatedMtu = await peripheral.requestMtu(requestedMtu);
-      log("negotiated MTU $negotiatedMtu");
+     // int negotiatedMtu = await peripheral.requestMtu(requestedMtu);
+      await peripheral.requestMtu(requestedMtu);
+      log("negotiated MTU ");
     });
   }
 

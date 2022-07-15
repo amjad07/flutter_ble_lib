@@ -11,25 +11,25 @@ class DeviceDetailsBloc {
   final BleManager _bleManager;
   final DeviceRepository _deviceRepository;
 
-  BehaviorSubject<BleDevice> _deviceController;
+  late BehaviorSubject<BleDevice> _deviceController;
 
-  ValueObservable<BleDevice> get device => _deviceController.stream;
+  ValueStream<BleDevice> get device => _deviceController.stream;
 
-  BehaviorSubject<PeripheralConnectionState> _connectionStateController;
+  late BehaviorSubject<PeripheralConnectionState> _connectionStateController;
 
-  ValueObservable<PeripheralConnectionState> get connectionState =>
+  ValueStream<PeripheralConnectionState> get connectionState =>
       _connectionStateController.stream;
 
-  Subject<List<DebugLog>> _logsController;
+  late Subject<List<DebugLog>> _logsController;
 
-  Observable<List<DebugLog>> get logs => _logsController.stream;
+  Stream<List<DebugLog>> get logs => _logsController.stream;
 
   Stream<BleDevice> get disconnectedDevice => _deviceRepository.pickedDevice
       .skipWhile((bleDevice) => bleDevice != null);
 
   List<DebugLog> _logs = [];
-  Logger log;
-  Logger logError;
+  late Logger log;
+  late Logger logError;
 
   DeviceDetailsBloc(this._deviceRepository, this._bleManager) {
     var device = _deviceRepository.pickedDevice.value;
@@ -68,7 +68,7 @@ class DeviceDetailsBloc {
   Future<void> disconnect() async {
     _clearLogs();
     disconnectManual();
-    return _deviceRepository.pickDevice(null);
+    //  return _deviceRepository.pickDevice(null);
   }
 
   Future<void> disconnectManual() async {

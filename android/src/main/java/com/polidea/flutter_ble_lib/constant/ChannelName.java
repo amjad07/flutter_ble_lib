@@ -1,4 +1,4 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.constant;
+package com.polidea.flutter_ble_lib.constant;
 
 public interface ChannelName {
     String FLUTTER_BLE_LIB = "flutter_ble_lib";

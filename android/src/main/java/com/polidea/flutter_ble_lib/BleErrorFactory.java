@@ -1,4 +1,4 @@
-package android.src.main.java.com.polidea.flutter_ble_lib;
+package com.polidea.flutter_ble_lib;
 
 import com.polidea.multiplatformbleadapter.errors.BleError;
 import com.polidea.multiplatformbleadapter.errors.BleErrorCode;

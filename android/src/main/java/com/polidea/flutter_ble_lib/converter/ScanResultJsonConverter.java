@@ -1,4 +1,7 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.converter;
+package com.polidea.flutter_ble_lib.converter;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.polidea.multiplatformbleadapter.AdvertisementData;
 import com.polidea.multiplatformbleadapter.ScanResult;
@@ -14,9 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class ScanResultJsonConverter implements JsonConverter<ScanResult> {
 

@@ -1,6 +1,8 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.delegate;
+package com.polidea.flutter_ble_lib.delegate;
 
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.polidea.flutter_ble_lib.constant.ArgumentKey;
 import com.polidea.flutter_ble_lib.constant.MethodName;
@@ -10,7 +12,6 @@ import com.polidea.multiplatformbleadapter.errors.BleErrorCode;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 

@@ -17,17 +17,19 @@ class DevicesBloc {
   StreamController<BleDevice> _devicePickerController =
       StreamController<BleDevice>();
 
-  StreamSubscription<ScanResult> _scanSubscription;
-  StreamSubscription _devicePickerSubscription;
+  late StreamSubscription<ScanResult> _scanSubscription;
+  late StreamSubscription _devicePickerSubscription;
 
-  ValueObservable<List<BleDevice>> get visibleDevices =>
+  ValueStream<List<BleDevice>> get visibleDevices =>
       _visibleDevicesController.stream;
 
   Sink<BleDevice> get devicePicker => _devicePickerController.sink;
 
-  DeviceRepository _deviceRepository;
-  BleManager _bleManager;
-  PermissionStatus _locationPermissionStatus = PermissionStatus.unknown;
+  late DeviceRepository _deviceRepository;
+  late BleManager _bleManager;
+
+  //PermissionStatus _locationPermissionStatus = PermissionStatus.unknown;
+  late PermissionStatus _locationPermissionStatus;
 
   Stream<BleDevice> get pickedDevice => _deviceRepository.pickedDevice
       .skipWhile((bleDevice) => bleDevice == null);
@@ -79,20 +81,30 @@ class DevicesBloc {
 
   Future<void> _checkPermissions() async {
     if (Platform.isAndroid) {
-      var permissionStatus = await PermissionHandler()
-          .requestPermissions([PermissionGroup.location]);
+      // You can request multiple permissions at once.
+      Map<Permission, PermissionStatus> permissionStatus = await [
+        Permission.location,
+      ].request();
+      print(permissionStatus[Permission.location]);
 
-      _locationPermissionStatus = permissionStatus[PermissionGroup.location];
-
-      if (_locationPermissionStatus != PermissionStatus.granted) {
+      if (await Permission.contacts.request().isGranted) {
+        // Either the permission was already granted before or the user just granted it.
+      }else{
         return Future.error(Exception("Location permission not granted"));
+
       }
+
+      // _locationPermissionStatus = permissionStatus[PermissionGroup.location];
+      //
+      // if (_locationPermissionStatus != PermissionStatus.granted) {
+      //   return Future.error(Exception("Location permission not granted"));
+      // }
     }
   }
 
   Future<void> _waitForBluetoothPoweredOn() async {
     Completer completer = Completer();
-    StreamSubscription<BluetoothState> subscription;
+    late StreamSubscription<BluetoothState> subscription;
     subscription = _bleManager
         .observeBluetoothState(emitCurrentValue: true)
         .listen((bluetoothState) async {

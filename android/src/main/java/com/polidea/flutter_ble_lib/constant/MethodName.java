@@ -1,4 +1,4 @@
-package android.src.main.java.com.polidea.flutter_ble_lib.constant;
+package com.polidea.flutter_ble_lib.constant;
 
 public interface MethodName {
     String CREATE_CLIENT = "createClient";
